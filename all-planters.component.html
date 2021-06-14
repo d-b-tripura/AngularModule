@@ -1,0 +1,19 @@
+<p>all-planters works!</p>
+<table *ngFor="let item of getAllProducts()">
+    <tr>
+        <td> <img src="{{item.imageName}}" style="width:250px;height:300px;"/>   </td>
+        <td> {{item.planterId}} </td>
+        <td> {{item.planterCost|currency:'INR'}} </td>
+        <td> {{item.drainageHoles}} </td>
+        <td> {{item.shape|description:item.shape}} </td>
+        <td> {{item.deliveryDate|date:'shortDate'}} </td>
+        <td>
+            <div>
+                <img *ngFor = "let n of getRating(item.rating)" src = "assets/star.png" height="10" width="10">
+            </div>
+        </td>
+        <td> <button (click)="addToCart()">Add To Cart</button> </td>
+        <td> <button (click)="doShare()">Share</button> </td>
+        
+    </tr>
+</table>
