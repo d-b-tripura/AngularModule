@@ -1,0 +1,51 @@
+<div class="mainDiv">
+  
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm" >
+  
+    <div class="form-group">
+      <label>Product Name </label>
+      <input type="text" class="form-control" id="pname1" name="productName"
+      [(ngModel)]="productInput.productName" #productName="ngModel" required>
+      Touched {{productName.touched}}
+      Dirty {{productName.dirty}}
+      untouched {{productName.untouched}}
+      pristine {{productName.pristine}}
+      Invalid {{productName.invalid}}
+      <div *ngIf="productName.invalid == true && productName.pristine == false" class="errorMsg"> 
+      
+          Product name cannot be left blank
+        
+      </div>
+        
+    </div>
+    
+
+    <div class="form-group">
+      <label>Product Cost </label>
+      <input type="text" class="form-control" id="pcost" name="productCost"
+      [(ngModel)]="productInput.productCost" #productCost="ngModel">
+      Touched {{productCost.touched}}
+      Dirty {{productCost.dirty}}
+      untouched {{productCost.untouched}}
+      pristine {{productCost.pristine}}
+      Invalid {{productCost.invalid}}
+      <div *ngIf="productCost.invalid == true && productCost.pristine == false" class="errorMsg"> 
+      
+          Product cost cannot be left blank
+        
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Product Category </label>
+      <select id="pCategory1" name="productCategory" [(ngModel)]="productInput.productCategory">
+        <option> Laptop </option>
+        <option> Camera </option>
+        <option> Mobile-Phone </option>
+      </select>
+    </div>
+    
+      <button type="submit" class="btn btn-primary" [disabled]="productForm.form.invalid">Submit</button>
+    </form>
+  
+</div>
